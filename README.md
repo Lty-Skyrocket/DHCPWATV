@@ -1,4 +1,4 @@
-# TARMDNGI
+# DHCPWATV
 
 ## Method Description
 DHCPWATV is a powerful predictive model for drug-disease associations.  <a href="https://www.example.com" title="论文链接(待添加)">论文链接</a>
