@@ -16,6 +16,7 @@ def set_seed(seed=42):
 set_seed(42)  # 在代码运行时设置随机数种子
 
 def custom_loss(y_true, y_pred, encoder, lambda_l1=0.4, lambda_nuclear=0.6):
+    mse_loss = tf.reduce_mean(tf.square(y_true - y_pred))
 
     # 初始化正则化损失
     l1_loss = 0
@@ -34,7 +35,7 @@ def custom_loss(y_true, y_pred, encoder, lambda_l1=0.4, lambda_nuclear=0.6):
     nuclear_norm_loss += tf.reduce_sum(singular_values)
 
     # 总损失 = L1正则化 + 核范数正则化
-    total_loss =    lambda_l1 * l1_loss + lambda_nuclear * nuclear_norm_loss
+    total_loss =   mse_loss+ lambda_l1 * l1_loss + lambda_nuclear * nuclear_norm_loss
     return total_loss
 
 
